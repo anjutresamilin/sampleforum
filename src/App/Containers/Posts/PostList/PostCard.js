@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { getSingleUserUrl } from "../../../helpers/apiUrl";
-
 const Post = styled.div`
   width: 40rem;
   height: 25rem;

@@ -19,7 +19,7 @@ const ContentWrapper = styled.div`
   margin: 2rem;
 `;
 
-const PostsListContainer = () => {
+const PostsListContainer = ({ history }) => {
   const [posts, loading] = useRequest({
     url: getPostsUrl(),
     method: { method: "GET" },
@@ -40,6 +40,7 @@ const PostsListContainer = () => {
           const user = users.find((user) => user.id === post.userId);
           return (
             <PostCard
+              history={history}
               key={post.id}
               id={post.id}
               title={post.title}

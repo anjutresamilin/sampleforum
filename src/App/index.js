@@ -1,17 +1,20 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import GlobalStyle from "./Styles/GlobalStyles";
 import { Theme } from "./Styles/Theme";
-import PostsListContainer from "./Containers/Posts/PostList/PostsListContainer";
+import Routes from "./Routes";
+import Spinner from "./Components/Spinner";
 
 function App() {
   return (
     <ThemeProvider theme={Theme}>
       <GlobalStyle />
       <Router>
-        <PostsListContainer />
+        <Suspense fallback={<Spinner />}>
+          <Routes />
+        </Suspense>
       </Router>
     </ThemeProvider>
   );

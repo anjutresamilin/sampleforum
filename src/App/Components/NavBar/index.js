@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const NavWrapper = styled.nav`
   width: 100%;
@@ -36,10 +37,15 @@ const NavItem = styled.li`
   text-transform: uppercase;
   transition: all 0.3s;
   padding: 1.5rem;
+  cursor: pointer;
 
   &:hover {
     background: #f39883;
   }
+`;
+
+const StyledLink = styled(Link)`
+  color: ${(props) => props.theme.primaryTextColor};
 `;
 
 const index = () => {
@@ -49,7 +55,9 @@ const index = () => {
         <Logo>Sample Forum</Logo>
         <NavItems>
           {["Home"].map((menu) => (
-            <NavItem>{menu}</NavItem>
+            <NavItem key={menu}>
+              <StyledLink to="/">{menu}</StyledLink>
+            </NavItem>
           ))}
         </NavItems>
       </NavContent>

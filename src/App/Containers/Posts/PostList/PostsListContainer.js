@@ -13,12 +13,6 @@ const PostGrid = styled.div`
   justify-items: center;
 `;
 
-const ContentWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 2rem;
-`;
-
 const PostsListContainer = ({ history }) => {
   const [posts, loading] = useRequest({
     url: getPostsUrl(),
@@ -34,24 +28,22 @@ const PostsListContainer = ({ history }) => {
   }
 
   return (
-    <ContentWrapper>
-      <PostGrid>
-        {posts.map((post) => {
-          const user = users.find((user) => user.id === post.userId);
-          return (
-            <PostCard
-              history={history}
-              key={post.id}
-              id={post.id}
-              title={post.title}
-              body={post.body}
-              userId={user?.id}
-              username={user?.username} //optional chaining operation
-            />
-          );
-        })}
-      </PostGrid>
-    </ContentWrapper>
+    <PostGrid>
+      {posts.map((post) => {
+        const user = users.find((user) => user.id === post.userId);
+        return (
+          <PostCard
+            history={history}
+            key={post.id}
+            id={post.id}
+            title={post.title}
+            body={post.body}
+            userId={user?.id}
+            username={user?.username} //optional chaining operation
+          />
+        );
+      })}
+    </PostGrid>
   );
 };
 

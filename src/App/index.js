@@ -6,6 +6,7 @@ import GlobalStyle from "./Styles/GlobalStyles";
 import { Theme } from "./Styles/Theme";
 import Routes from "./Routes";
 import Spinner from "./Components/Spinner";
+import Layout from "./Components/Layout";
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
       <GlobalStyle />
       <Router>
         <Suspense fallback={<Spinner />}>
-          <Routes />
+          <Layout>
+            <Routes />
+          </Layout>
         </Suspense>
       </Router>
     </ThemeProvider>

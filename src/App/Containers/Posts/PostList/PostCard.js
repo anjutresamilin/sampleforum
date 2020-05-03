@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+import { getSingleUserUrl } from "../../../helpers/apiUrl";
 
 const Post = styled.div`
   width: 40rem;
@@ -30,11 +33,13 @@ const PostBody = styled.p`
   font-size: 1.5rem;
 `;
 
-const PostCard = ({ id, title, body, username }) => {
+const PostCard = ({ id, title, body, username, userId }) => {
   return (
     <Post key={id}>
       <PostTitle>{title}</PostTitle>
-      <PostUser>{username}</PostUser>
+      <Link to={getSingleUserUrl(userId)}>
+        <PostUser>{username}</PostUser>
+      </Link>
       <PostBody>{body}</PostBody>
     </Post>
   );

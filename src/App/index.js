@@ -1,5 +1,6 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { ThemeProvider } from "styled-components";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import GlobalStyle from "./Styles/GlobalStyles";
 import { Theme } from "./Styles/Theme";
@@ -9,7 +10,9 @@ function App() {
   return (
     <ThemeProvider theme={Theme}>
       <GlobalStyle />
-      <PostsListContainer />
+      <Router>
+        <PostsListContainer />
+      </Router>
     </ThemeProvider>
   );
 }

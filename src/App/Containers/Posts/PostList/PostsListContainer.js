@@ -2,6 +2,7 @@ import React from "react";
 
 import { getPostsUrl } from "../../../helpers/apiUrl";
 import useRequest from "../../../Hooks/useRequest";
+import Spinner from "../../../Components/Spinner";
 
 const PostsListContainer = () => {
   const [posts, loading] = useRequest({
@@ -9,20 +10,18 @@ const PostsListContainer = () => {
     method: { method: "GET" },
   });
 
-  console.log("posts", posts);
+  if (loading) {
+    return <Spinner />;
+  }
 
   return (
     <>
-      {loading ? (
-        <h1>Loading...</h1>
-      ) : (
-        posts.map((post) => (
-          <div>
-            <h3>{post.title}</h3>
-            <p>{post.body}</p>
-          </div>
-        ))
-      )}
+      {posts.map((post) => (
+        <div key={post.id}>
+          <h3>{post.title}</h3>
+          <p>{post.body}</p>
+        </div>
+      ))}
     </>
   );
 };

@@ -1,7 +1,9 @@
 import React from "react";
 
+import PostsListContainer from "./Containers/Posts/PostList/PostsListContainer";
+
 function App() {
-  return <h1>Simple Forum</h1>;
+  return <PostsListContainer />;
 }
 
 export default App;

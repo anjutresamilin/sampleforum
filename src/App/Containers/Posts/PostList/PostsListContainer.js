@@ -40,7 +40,7 @@ const PostsListContainer = ({ history }) => {
             title={post.title}
             body={post.body}
             userId={user?.id}
-            username={user?.username} //optional chaining operation
+            username={user?.username}
           />
         );
       })}

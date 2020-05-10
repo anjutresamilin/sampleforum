@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-// used params as objects to avoid order issues
 const useRequest = ({ url, method }) => {
   const [jsonResult, setJsonResult] = useState([]);
   const [loading, setLoading] = useState(false);
